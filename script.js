@@ -21,7 +21,11 @@ function clicked()
     count++;
     let clickedElement = event.target.id;
     if(arr[parseInt(clickedElement)-1] == true)
+    {
         console.log("Cell already used by another player! Try again");
+        count -= 1;
+        exit();
+    }
     arr[parseInt(clickedElement)-1] = true;
     console.log(clickedElement)
     document.getElementById(clickedElement).value = v;
