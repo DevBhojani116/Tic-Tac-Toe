@@ -13,7 +13,7 @@ const arr = [false,false,false,false,false,false,false,false,false];
 let count = 0;
 function clicked()
 {
-    let v = "abcd"
+    let v = "";
     if(count%2 == 0)
         v = "X";
     else
@@ -28,7 +28,7 @@ function clicked()
     }
     arr[parseInt(clickedElement)-1] = true;
     console.log(clickedElement)
-    document.getElementById(clickedElement).value = v;
+    document.getElementById(clickedElement).innerHTML = v;
     console.log(arr);
 }
 
