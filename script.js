@@ -3,6 +3,7 @@ let count = 0;
 let update = document.getElementById("title");
 update.innerHTML = "Start the game";
 let println = document.getElementById("print");
+resetGame();
 function clicked()
 {
     let clickedElement = event.target.id;
