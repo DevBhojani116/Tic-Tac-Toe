@@ -1,3 +1,5 @@
+let clickSound = new Audio('../Sounds/click.wav');
+
 let arr = [false,false,false,false,false,false,false,false,false];
 let count = 0;
 let update = document.getElementById("title");
@@ -14,6 +16,8 @@ function clicked()
         update.innerHTML = "Cell already used by another player! Try again";
         exit();
     }
+
+    clickSound.play();
 
     //determining whether the input is X or O
     let v = "";
