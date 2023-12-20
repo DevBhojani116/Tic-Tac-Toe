@@ -1,10 +1,10 @@
 let clickSound = new Audio('../Sounds/click.wav');
+let winningSound = new Audio("../Sounds/winner.mp3");
 
-let arr = [false,false,false,false,false,false,false,false,false];
-let count = 0;
-let update = document.getElementById("title");
-update.innerHTML = "Start the game";
-let println = document.getElementById("print");
+let arr = [false,false,false,false,false,false,false,false,false]; //array holding the value of each cell
+let count = 0; //for deciding turns
+let title = document.getElementById("title");
+title.innerHTML = "Start the game";
 resetGame();
 function clicked()
 {
@@ -35,19 +35,20 @@ function clicked()
 
     //updating the value in the array and also printing the update on the screen
     arr[parseInt(clickedElement)-1] = v;
-    update.innerHTML = v + " at " + clickedElement;
+    title.innerHTML = v + " at " + clickedElement;
     // console.log(clickedElement);
 
     //updating the value on the screen
     document.getElementById(clickedElement).innerHTML = v;
 
-    //checking if someone has won
+    //checking if someone has won or if the game is drawn
     let winner = win(arr)
     if(winner == "X" || winner == "O" || count == 8)
     {
-        update.innerHTML = "Match Over!!";
+        title.innerHTML = "Match Over!!";
         if(winner == "X" || winner == "O")
         {
+            winningSound.play();
             //disabling every other cell
             arr.forEach((element,index,arr)=>
             {
@@ -89,7 +90,7 @@ function resetGame()
     {
         document.getElementById(i).innerHTML = "";
     } 
-    update.innerHTML = "Start the game";
+    title.innerHTML = "Start the game";
     document.getElementById("winner").innerHTML = "";
     count = 0;
 }
