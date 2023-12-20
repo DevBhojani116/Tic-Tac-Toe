@@ -43,13 +43,21 @@ function clicked()
 
     //checking if someone has won
     let winner = win(arr)
-    document.getElementById("winner").innerHTML = "Winner is " + winner;
     if(winner == "X" || winner == "O" || count == 8)
     {
         update.innerHTML = "Match Over!!";
-        resetGame();
+        if(winner == "X" || winner == "O")
+        {
+            //disabling every other cell
+            arr.forEach((element,index,arr)=>
+            {
+                arr[index] = true;
+            });
+            document.getElementById("winner").innerHTML = "Winner is " + winner;
+        }
+        else
+            document.getElementById("winner").innerHTML = "It's a draw";
     }
-    // println.innerHTML = arr;
     else
         count++;
 }
@@ -77,10 +85,11 @@ function win(arr)
 function resetGame()
 {
     arr = [false,false,false,false,false,false,false,false,false];
-    // println.innerHTML = arr;
     for(let i = 1; i<=9; i++)
     {
         document.getElementById(i).innerHTML = "";
     } 
+    update.innerHTML = "Start the game";
+    document.getElementById("winner").innerHTML = "";
     count = 0;
 }
