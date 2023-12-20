@@ -3,6 +3,7 @@
     padding: 0px;
     margin: 0px;
 }
+
 body
 {
     background-color: #548687;
@@ -47,4 +48,19 @@ table tr td button
     color: white;
     border: none;
     border-radius: 8px;
+}
+
+@media only screen and (max-height: 500px)
+{
+    .container
+    {
+        height: 289px;
+    }
+    table tr td button
+    {
+        height: 60px;
+        width: 60px;
+        font-size: 35px;
+        margin: 2.5px;
+    }
 }
