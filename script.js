@@ -13,7 +13,8 @@ function clicked()
     //checking if the clicked cell is available for use or not
     if(isOccupied(clickedElement) == true)
     {
-        update.innerHTML = "Cell already used by another player! Try again";
+        document.getElementById(clickedElement) = "disabled";
+        // update.innerHTML = "Cell already used by another player! Try again";
         exit();
     }
 
@@ -22,9 +23,15 @@ function clicked()
     //determining whether the input is X or O
     let v = "";
     if(count%2 == 0)
+    { 
+        document.getElementById(clickedElement).style.color = "#b0413e";
         v = "X";
+    }
     else
+    {
+        document.getElementById(clickedElement).style.color = "black";
         v = "O";
+    }
 
     //updating the value in the array and also printing the update on the screen
     arr[parseInt(clickedElement)-1] = v;
@@ -42,8 +49,9 @@ function clicked()
         update.innerHTML = "Match Over!!";
         resetGame();
     }
-    println.innerHTML = arr;
-    count++;
+    // println.innerHTML = arr;
+    else
+        count++;
 }
 
 function isOccupied(cell)
@@ -54,7 +62,7 @@ function isOccupied(cell)
         return true; //the cell contains either X or O
 }
 
-let winningPossibilities = [[0,1,2],[0,3,6],[0,4,8],[1,4,7],[2,5,8],[2,4,6],[3,4,5],[6,7,8]]
+let winningPossibilities = [[0,1,2],[0,3,6],[0,4,8],[1,4,7],[2,5,8],[2,4,6],[3,4,5],[6,7,8]];
 function win(arr)
 {
     for(let i = 0; i<8; i++)
@@ -69,9 +77,10 @@ function win(arr)
 function resetGame()
 {
     arr = [false,false,false,false,false,false,false,false,false];
-    println.innerHTML = arr;
+    // println.innerHTML = arr;
     for(let i = 1; i<=9; i++)
     {
         document.getElementById(i).innerHTML = "";
     } 
+    count = 0;
 }
