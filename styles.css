@@ -41,6 +41,43 @@ table tr td button
     background-color: #ffffc7;
 }
 
+#slantLineLR
+{
+    width: 300px;
+    height: 0.2px;
+    background-color: #191913;
+    rotate: +45deg;
+    position: absolute;
+    display: none;
+}
+
+#slantLineRL
+{
+    width: 300px;
+    height: 0.2px;
+    background-color: #191913;
+    rotate: -45deg;
+    position: absolute;
+    display: none;
+}
+
+#horizontalLine
+{
+    width: 212px;
+    height: 0.2px;
+    background-color: #191913;
+    display: none;
+}
+
+#verticalLine
+{
+    width: 212px;
+    height: 0.2px;
+    background-color: #191913;
+    rotate: 90deg;
+    display: none;
+}
+
 #reset
 {
     margin-top: 5px;
