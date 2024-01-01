@@ -1,5 +1,5 @@
-let clickSound = new Audio('../Sounds/click.wav');
-let winningSound = new Audio("../Sounds/winner.mp3");
+let clickSound = new Audio('click.wav');
+let winningSound = new Audio("winner.mp3");
 
 let arr = [false,false,false,false,false,false,false,false,false]; //array holding the value of each cell
 let count = 0; //for deciding turns
